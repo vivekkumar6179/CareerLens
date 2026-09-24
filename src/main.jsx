@@ -7,11 +7,11 @@ import {
   FileCheck2, LoaderCircle, Trash2, ExternalLink
 } from "lucide-react";
 import * as pdfjsLib from "pdfjs-dist";
-import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+
 import mammoth from "mammoth";
 import "./styles.css";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
+pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 
 const nav = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
