@@ -215,7 +215,7 @@ function App() {
         <div className="nav-label">WORKSPACE</div>
         <nav>{nav.map(item=>{const Icon=item.icon;return <button key={item.id} className={page===item.id?"nav-item active":"nav-item"} onClick={()=>{setPage(item.id);setMobileOpen(false)}}><Icon size={18}/><span>{item.label}</span>{page===item.id&&<ChevronRight size={15} className="nav-arrow"/>}</button>})}</nav>
         <div className="sidebar-bottom">
-          <div className="profile-mini"><div className="avatar">SG</div><div><b>Shubham Gupta</b><span>Data Science Student</span></div><Settings size={16}/></div>
+          <div className="profile-mini"><div className="avatar">VK</div><div><b>Vivek</b><span>Data Science Student</span></div><Settings size={16}/></div>
         </div>
       </aside>
       {mobileOpen && <div className="overlay" onClick={()=>setMobileOpen(false)}/>}
@@ -246,7 +246,7 @@ function Stat({title,value,suffix,change}) {
 function Dashboard({analysis,fileName,setPage,loading,onFile,onClear}) {
   const inputRef=useRef();
   return <>
-    <section className="welcome"><div><p className="eyebrow">WEDNESDAY, AUGUST 12</p><h1>Good evening, Shubham <span>👋</span></h1><p className="muted">{analysis ? `Latest analysis: ${fileName}` : "Upload your resume to get a real career snapshot."}</p></div><button className="primary" onClick={()=>inputRef.current?.click()} disabled={loading}>{loading?<><LoaderCircle className="spin" size={17}/> Analyzing...</>:<><Upload size={17}/> Analyze Resume</>}<input ref={inputRef} type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden onChange={e=>onFile(e.target.files?.[0])}/></button></section>
+    <section className="welcome"><div><p className="eyebrow">WEDNESDAY, AUGUST 12</p><h1>Good evening, Vivek <span>👋</span></h1><p className="muted">{analysis ? `Latest analysis: ${fileName}` : "Upload your resume to get a real career snapshot."}</p></div><button className="primary" onClick={()=>inputRef.current?.click()} disabled={loading}>{loading?<><LoaderCircle className="spin" size={17}/> Analyzing...</>:<><Upload size={17}/> Analyze Resume</>}<input ref={inputRef} type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden onChange={e=>onFile(e.target.files?.[0])}/></button></section>
     {!analysis ? <><div className="stats-grid"><EmptyStat title="Resume Score"/><EmptyStat title="ATS Score"/><EmptyStat title="Job Match"/><EmptyStat title="Skills Detected"/></div><EmptyDashboard setPage={setPage} onUpload={()=>inputRef.current?.click()}/></> : <RealDashboard analysis={analysis} setPage={setPage} onClear={onClear}/>}
   </>;
 }
